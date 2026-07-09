@@ -10,7 +10,7 @@ This analysis examines 222 Melbourne metropolitan train stations to understand p
 
 - **Peak Congestion**: 64% of system usage occurs during AM (27.5%) and PM (36.5%) peaks, creating capacity constraints
 - **Top 3 Stations**: Flinders Street (19.6M), Southern Cross (14.7M), and Melbourne Central (11.9M) account for significant system load
-- **Weekday Dominance**: 49% of annual patronage occurs on weekdays, indicating strong commuter dependency
+- **Weekday Dominance**: ~83% of annual patronage occurs on weekdays, indicating strong commuter dependency
 - **Geographic Concentration**: CBD stations show 10-20x higher patronage than outer suburban stations
 
 ## Business Problem
@@ -42,12 +42,14 @@ Transport Victoria faces challenges in:
 - **Opportunity**: Dynamic pricing or express services could redistribute demand
 
 ### 3. Weekend vs Weekday Patterns
-- **Weekday**: 49% of patronage
-- **Weekend**: 51% (Saturday 29.6% + Sunday 21.4%)
-- **Insight**: Weekend patronage is stronger than expected, suggesting leisure/tourism usage
+- **Weekday**: ~83% of annual patronage
+- **Weekend**: ~17% (Saturday ~10.0% + Sunday ~7.2%)
+- **Insight**: Patronage is overwhelmingly commuter-driven — weekday travel dominates, with weekend demand only about one-sixth of the annual total
+
+> **Methodology note:** `Pax_weekday/Saturday/Sunday` are *average entries per day*, so annual shares must weight each daily average by how many of that day type occur in the year (~261 weekdays vs ~52 Saturdays and ~52 Sundays). An earlier version compared the raw daily averages 1:1, which incorrectly inflated the weekend to ~51%.
 
 ### 4. Geographic Clustering
-- **CBD stations**: Flinders Street, Southern Cross, Melbourne Central, Parliament, Flagstaff handle ~45% of total system patronage
+- **CBD stations**: Flinders Street, Southern Cross, Melbourne Central, Parliament, Flagstaff handle ~31% of total system patronage
 - **Outer stations**: Show lower but consistent usage
 - **Planning implication**: Infrastructure investment should prioritize CBD capacity expansion
 
@@ -73,15 +75,15 @@ Transport Victoria faces challenges in:
 **Action**: Focus platform extensions and capacity upgrades on top 5 CBD stations
 
 - **Stations**: Flinders Street, Southern Cross, Melbourne Central, Parliament, Flagstaff
-- **Rationale**: These 5 stations handle approximately 45% of system patronage
+- **Rationale**: These 5 stations handle approximately 31% of system patronage
 - **ROI**: Highest passenger impact per dollar invested
 
 ### 4. Weekend Service Optimization
-**Action**: Analyze whether weekend service levels match the 51% patronage share
+**Action**: Right-size weekend service to the ~17% weekend patronage share
 
-- **Current finding**: Weekend patronage exceeds 50% of weekly total
-- **Investigation needed**: Are weekend services appropriately scaled to demand?
-- **Opportunity**: May warrant increased weekend frequency or special event services
+- **Current finding**: Weekend patronage is ~17% of the annual total (Sat ~10%, Sun ~7%)
+- **Investigation needed**: Are weekday peak services scaled to the ~83% commuter load?
+- **Opportunity**: Weekend timetables can run leaner than weekday peaks; concentrate capacity on the AM/PM commuter peaks
 
 ## Technical Approach
 
