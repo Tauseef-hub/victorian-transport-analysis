@@ -14,7 +14,7 @@ identifying congestion hotspots and service-optimization opportunities.
   weekends (Saturday ~10%, Sunday ~7%).
 - **Extreme skew** — Flinders Street (19.6M/yr), Southern Cross (14.7M) and
   Melbourne Central (11.9M) dominate; busiest-to-quietest ratio ≈ 7,850:1.
-- **CBD load** — the top five CBD stations handle ~31% of all entries.
+- **CBD load** — the top five CBD stations handle ~31.4% of all entries.
 
 ## Methodology note (weighted day-type shares)
 
@@ -24,6 +24,13 @@ of that day type occur in the financial year (~261 weekdays vs ~52 Saturdays and
 ~52 Sundays) — comparing the raw daily averages 1:1 overstates the weekend to
 ~51%. The weighted figures above (~83% / ~17%) reconcile to the reported annual
 totals within 0.7%.
+
+> **Correction (Jul 2026):** an earlier version of this README reported the
+> weekday/weekend split from the raw daily averages (~49% / ~51%) and a CBD share
+> of ~45%. Both were wrong: the day-average figures had not been weighted by the
+> number of each day type in the year. The day-count-weighted values (~83% / ~17%
+> weekday/weekend; ~31.4% CBD top-five) are the corrected numbers and are what
+> `src/analyze.py` now reproduces.
 
 ## Recommendations
 

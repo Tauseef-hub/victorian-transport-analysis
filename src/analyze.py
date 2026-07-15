@@ -20,6 +20,14 @@ bottom_10 = df.nsmallest(10, 'Pax_annual')[['Stop_name', 'Pax_annual']]
 for i, (name, pax) in enumerate(bottom_10.values, 1):
     print(f"{i:2d}. {name:30s} {pax:>10,} passengers/year")
 
+# CBD load - the five CBD-loop stations' share of all annual entries.
+print("\n--- CBD LOAD (top five CBD stations) ---")
+cbd_stations = ['Flinders Street', 'Southern Cross', 'Melbourne Central',
+                'Parliament', 'Flagstaff']
+cbd_annual = df[df['Stop_name'].isin(cbd_stations)]['Pax_annual'].sum()
+total_annual = df['Pax_annual'].sum()
+print(f"Top five CBD stations: {cbd_annual/total_annual*100:.1f}% of all entries")
+
 # Time of day analysis - system-wide.
 # NOTE: Pax_pre_AM_peak ... Pax_PM_late are AVERAGE entries on a typical
 # weekday, so together they describe the shape of one weekday. Shares are taken
